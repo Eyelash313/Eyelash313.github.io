@@ -1,35 +1,109 @@
+
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
-<title>Pari Lash Studio</title>
-</head>
-<body style="text-align:center;font-family:tahoma;background:#fff8fb;">
-<body style="text-align:center;font-family:sans-serif;">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<img src="banner-pari-lash.png" alt="Pari Lash Studio Banner" style="width:100%;height:auto;display:block;">
+<title>Pari Lash Studio</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:20px;
+    font-family:tahoma,sans-serif;
+    text-align:center;
+
+    background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.9), transparent 25%),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,.7), transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255,.5), transparent 25%),
+    linear-gradient(135deg,#fdf8ff,#f4efff,#fff8fb,#ffffff);
+
+    background-attachment:fixed;
+}
+
+.main-box{
+    max-width:900px;
+    margin:auto;
+    padding:25px;
+
+    background:rgba(255,255,255,.4);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.6);
+    border-radius:25px;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.08),
+    inset 0 1px 1px rgba(255,255,255,.8);
+}
+
+.banner{
+    width:100%;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+.product{
+    width:100%;
+    border-radius:20px;
+    margin-top:20px;
+}
+
+h1{
+    color:#7d5ba6;
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+p{
+    color:#555;
+    font-size:18px;
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 24px;
+    background:#b78bfa;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-size:16px;
+}
+
+.btn:hover{
+    opacity:.9;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="main-box">
+
+<img src="banner-pari-lash.png" class="banner" alt="Pari Lash Studio">
 
 <h1>Pari Lash Studio</h1>
-<p>زیبایی نگاهت، تخصص ماست ✨</p>
-<img src="spiky_lash.jpg" style="width:100%;display:block;">
+
+<p>
+✨ زیبایی نگاهت، تخصص ماست ✨
+</p>
+
+<img src="spiky_lash.jpg" class="product" alt="Spiky Lash">
+
+<a href="https://wa.me/" class="btn">
+ثبت سفارش
+</a>
+
+</div>
+
 </body>
 </html>
-body{
-    background:
-    radial-gradient(circle at top left, rgba(255,255,255,.9), transparent 40%),
-    radial-gradient(circle at bottom right, rgba(255,255,255,.6), transparent 40%),
-    linear-gradient(135deg,#f8f8f8,#e9edf2,#ffffff);
-    background-attachment: fixed;
-}
-
-/* کارت محصولات */
-.product-card,
-.card,
-.elementor-widget-container{
-    background: rgba(255,255,255,.45);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,.5);
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0,0,0,.08);
-}
