@@ -1,2 +1,557 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        
+  <title>Pari Lash Studio | سالن تخصصی مژه</title>
+
+  <!-- فونت‌های شیک -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Vazirmatn", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(183, 148, 88, 0.16), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(255, 214, 225, 0.12), transparent 35%),
+        #120f10;
+      color: #f8f1e9;
+      line-height: 1.8;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* ---------- بنر اصلی ---------- */
+
+    .hero {
+      width: 100%;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      background:
+        linear-gradient(rgba(10, 8, 9, 0.35), rgba(10, 8, 9, 0.75)),
+        url("banner-pari-lash.png ") center/cover no-repeat;
+
+      border-bottom-left-radius: 35px;
+      border-bottom-right-radius: 35px;
+      overflow: hidden;
+      box-shadow: 0 15px 45px rgba(0,0,0,.45);
+    }
+
+    .hero-content {
+      padding: 40px 20px;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(42px, 7vw, 78px);
+      color: #e4c48d;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: clamp(17px, 2.5vw, 23px);
+      color: #fff5ee;
+    }
+
+    .hero-line {
+      width: 80px;
+      height: 2px;
+      background: #c9a66b;
+      margin: 22px auto;
+    }
+
+    /* ---------- بخش معرفی ---------- */
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(30px, 5vw, 44px);
+      color: #dfc087;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #cfc4bd;
+      font-size: 15px;
+    }
+
+    .about-box {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(222,192,135,.2);
+      padding: 35px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,.18);
+    }
+
+    .about-box p {
+      color: #eee3dc;
+      font-size: 16px;
+    }
+
+    /* ---------- خدمات ---------- */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service {
+      background: linear-gradient(145deg, #211a1c, #171214);
+      border: 1px solid rgba(222,192,135,.18);
+      border-radius: 22px;
+      padding: 30px 20px;
+      text-align: center;
+      transition: .3s;
+    }
+
+    .service:hover {
+      transform: translateY(-6px);
+      border-color: rgba(222,192,135,.5);
+    }
+
+    .service-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .service h3 {
+      color: #e0bf82;
+      margin-bottom: 8px;
+    }
+
+    .service p {
+      color: #cfc5bf;
+      font-size: 14px;
+    }
+
+    /* ---------- مدل‌های مژه ---------- */
+
+    .lashes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .lash-card {
+      background: #1b1618;
+      border: 1px solid rgba(222,192,135,.2);
+      border-radius: 25px;
+      overflow: hidden;
+      transition: .3s;
+      box-shadow: 0 12px 35px rgba(0,0,0,.25);
+    }
+
+    .lash-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 45px rgba(0,0,0,.4);
+    }
+
+    .lash-card img {
+      width: 100%;
+      height: 290px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .lash-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .lash-info h3 {
+      font-family: "Playfair Display", serif;
+      color: #e2c28a;
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+
+    .lash-info p {
+      color: #cfc4bd;
+      font-size: 13px;
+    }
+
+    /* ---------- بنر وسط ---------- */
+
+    .wide-banner {
+      width: 100%;
+      min-height: 230px;
+      border-radius: 28px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      background:
+        linear-gradient(rgba(15,11,12,.45), rgba(15,11,12,.75)),
+        ار") center/cover no-repeat;
+
+      border: 1px solid rgba(222,192,135,.25);
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+    }
+
+    .wide-banner h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(30px, 5vw, 50px);
+      color: #f0d29a;
+    }
+
+    /* ---------- اطلاعات تماس ---------- */
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .contact-box {
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(222,192,135,.18);
+      border-radius: 22px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .contact-box strong {
+      display: block;
+      color: #dfc087;
+      margin-bottom: 6px;
+    }
+
+    .contact-box span {
+      color: #ddd1ca;
+      font-size: 14px;
+    }
+
+    /* ---------- فوتر ---------- */
+
+    footer {
+      margin-top: 30px;
+      padding: 35px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(222,192,135,.15);
+      color: #a99d96;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: #dfc087;
+    }
+
+    /* ---------- موبایل ---------- */
+
+    @media (max-width: 800px) {
+
+      .hero {
+        min-height: 390px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .services,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .lashes {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .lash-card img {
+        height: 220px;
+      }
+
+      .lash-info {
+        padding: 14px 8px;
+      }
+
+      .lash-info h3 {
+        font-size: 20px;
+      }
+
+      .lash-info p {
+        font-size: 11px;
+      }
+
+      .about-box {
+        padding: 25px 18px;
+      }
+
+      .wide-banner {
+        min-height: 190px;
+        border-radius: 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .container {
+        width: 94%;
+      }
+
+      .hero {
+        min-height: 330px;
+      }
+
+      .lashes {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .lash-card img {
+        height: 190px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= بنر اصلی ================= -->
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Pari Lash Studio</h1>
+      <div class="hero-line"></div>
+      <p>زیبایی نگاهت، تخصص ماست ✨</p>
+    </div>
+  </header>
+
+
+  <!-- ================= معرفی ================= -->
+
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>درباره Pari Lash Studio</h2>
+        <p>زیبایی طبیعی، ظرافت و ماندگاری</p>
+      </div>
+
+      <div class="about-box">
+        <p>
+          در Pari Lash Studio تلاش می‌کنیم با انتخاب مدل مناسب
+          و اجرای ظریف و حرفه‌ای، زیبایی چشم‌ها را بیشتر کنیم.
+          هدف ما داشتن نتیجه‌ای تمیز، جذاب و متناسب با چهره شماست.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= خدمات ================= -->
+
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>خدمات ما</h2>
+        <p>انتخابی برای هر سلیقه و هر فرم چشم</p>
+      </div>
+
+      <div class="services">
+
+        <div class="service">
+          <div class="service-icon">✨</div>
+          <h3>اکستنشن مژه</h3>
+          <p>اجرای ظریف و متناسب با فرم چشم</p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">🖤</div>
+          <h3>ترمیم مژه</h3>
+          <p>حفظ زیبایی و مرتب بودن مژه‌ها</p>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">🌸</div>
+          <h3>طراحی اختصاصی</h3>
+          <p>انتخاب مدل مناسب بر اساس سلیقه شما</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= مدل‌های مژه ================= -->
+
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>مدل‌های مژه</h2>
+        <p>مدل مورد علاقه‌ات را انتخاب کن</p>
+      </div>
+
+      <div class="lashes">
+
+
+        <!-- 1. CLASSIC -->
+
+        <div class="lash-card">
+          <img src="🔴 اسم فایل عکس Classic را اینجا بگذار" alt="Classic Lash">
+          <div class="lash-info">
+            <h3>Classic</h3>
+            <p>ظریف، طبیعی و همیشه شیک</p>
+          </div>
+        </div>
+
+
+        <!-- 2. ANIME -->
+
+        <div class="lash-card">
+          <img src="🔴 اسم فایل عکس Anime را اینجا بگذار" alt="Anime Lash">
+          <div class="lash-info">
+            <h3>Anime</h3>
+            <p>خاص، چشمگیر و متفاوت</p>
+          </div>
+        </div>
+
+
+        <!-- 3. SPIKY -->
+
+        <div class="lash-card">
+          <img src="🔴 اسم فایل عکس Spiky را اینجا بگذار" alt="Spiky Lash">
+          <div class="lash-info">
+            <h3>Spiky</h3>
+            <p>جذاب، مرتب و کمی جسورانه</p>
+          </div>
+        </div>
+
+
+        <!-- 4. WISPY -->
+
+        <div class="lash-card">
+          <img src="🔴 اسم فایل عکس Wispy را اینجا بگذار" alt="Wispy Lash">
+          <div class="lash-info">
+            <h3>Wispy</h3>
+            <p>سبک، نرم و ظریف</p>
+          </div>
+        </div>
+
+
+        <!-- 5. VOLUME -->
+
+        <div class="lash-card">
+          <img src="🔴 اسم فایل عکس Volume را اینجا بگذار" alt="Volume Lash">
+          <div class="lash-info">
+            <h3>Volume</h3>
+            <p>پرپشت، لوکس و چشمگیر</p>
+          </div>
+        </div>
+
+
+        <!-- 6. مدل ششم -->
+
+        <div class="lash-card">
+          <img src="🔴 اسم فایل عکس مدل ششم را اینجا بگذار" alt="Lash Style">
+          <div class="lash-info">
+            <h3>Signature</h3>
+            <p>مدلی خاص برای یک نگاه خاص</p>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= بنر عریض وسط ================= -->
+
+  <section>
+    <div class="container">
+
+      <div class="wide-banner">
+        <div>
+          <h2>Pari Lash Studio</h2>
+          <p>زیبایی نگاهت، امضای توست ✨</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= تماس ================= -->
+
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>اطلاعات و ارتباط با ما</h2>
+        <p>برای رزرو وقت با ما در ارتباط باشید</p>
+      </div>
+
+      <div class="contact">
+
+        <div class="contact-box">
+          <strong>📱 اینستاگرام</strong>
+          <span>@PariLashStudio</span>
+        </div>
+
+        <div class="contact-box">
+          <strong>📞 تماس</strong>
+          <span>شماره تماس خودت را اینجا بنویس</span>
+        </div>
+
+        <div class="contact-box">
+          <strong>📍 آدرس</strong>
+          <span>آدرس سالن را اینجا بنویس</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= فوتر ================= -->
+
+  <footer>
+    <strong>Pari Lash Studio</strong>
+    <br>
+    زیبایی نگاهت، تخصص ماست ✨
+  </footer>
+
+</body>
+</html>
