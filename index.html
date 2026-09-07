@@ -336,7 +336,25 @@ body {
       }
     }
 
-  </style>
+  </style>     
+  .visitor-counter {
+  text-align: center;
+  margin: 25px auto;
+  padding: 12px 22px;
+  width: fit-content;
+  border: 1px solid #8a6742;
+  border-radius: 30px;
+  background: rgba(138, 103, 66, 0.12);
+  color: #f8f1e9;
+  font-size: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.visitor-counter span {
+  color: #d6a85f;
+  font-weight: bold;
+  font-size: 18px;
+}
 </head>
 
 <body>
@@ -353,7 +371,29 @@ body {
     زیبایی نگاهت، تخصص ماست ✨
   </h2>
 </section>
+<!-- شمارنده بازدید -->
+<div class="visitor-counter">
+  👁️ بازدید سایت:
+  <span id="visit-count">...</span>
+</div>
 
+<script
+  src="https://page-views-api.ratneshc.com/script"
+  data-site="pari-lash-studio"
+  data-path="/"
+  defer>
+</script>
+
+<script>
+fetch("https://page-views-api.ratneshc.com/api/v1/views?site=pari-lash-studio&path=/")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("visit-count").textContent = data.views || 0;
+  })
+  .catch(() => {
+    document.getElementById("visit-count").textContent = "0";
+  });
+</script>
   <!-- ================= معرفی ================= -->
 
   <section>
