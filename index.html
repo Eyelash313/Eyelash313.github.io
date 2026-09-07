@@ -542,7 +542,9 @@
       <div class="contact-box">
     <strong>📅 رزرو نوبت</strong>
     <span>
-        <a href="booking.html">برای رزرو نوبت کلیک کنید</a>
+        <a href="#" onclick="openBooking(); return false;">
+    برای رزرو نوبت کلیک کنید
+</a>
     </span>
 </div>  </div>
 
@@ -550,7 +552,7 @@
 
     </div>
   </section>
-<a href="booking.html" class="lux-book-btn">
+<a href="#" class="lux-book-btn" onclick="openBooking(); return false;">
 💖 رزرو نوبت
 </a>
 
@@ -619,6 +621,191 @@ transform:scale(1.08);
     <br>
     زیبایی نگاهت، تخصص ماست ✨
   </footer>
+<!-- پنل شیک رزرو نوبت -->
 
+<div id="bookingOverlay" class="booking-overlay">
+
+    <div class="booking-modal">
+
+        <button
+            class="booking-close"
+            onclick="closeBooking()"
+            aria-label="بستن"
+        >
+            ×
+        </button>
+
+        <iframe
+            src="booking.html"
+            class="booking-frame"
+            title="رزرو نوبت"
+        ></iframe>
+
+    </div>
+
+</div>
+
+
+<style>
+
+.booking-overlay{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:15px;
+
+    background:rgba(55,35,45,.45);
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+}
+
+.booking-overlay.active{
+    display:flex;
+}
+
+.booking-modal{
+    position:relative;
+
+    width:100%;
+    max-width:560px;
+    height:90vh;
+
+    overflow:hidden;
+
+    background:#fff;
+    border-radius:28px;
+
+    box-shadow:
+        0 25px 80px rgba(55,35,45,.28),
+        0 0 35px rgba(255,170,205,.18);
+
+    animation:bookingOpen .3s ease;
+}
+
+.booking-frame{
+    width:100%;
+    height:100%;
+
+    border:0;
+    display:block;
+}
+
+.booking-close{
+    position:absolute;
+
+    top:10px;
+    left:10px;
+
+    z-index:20;
+
+    width:38px;
+    height:38px;
+
+    padding:0;
+
+    border:0;
+    border-radius:50%;
+
+    background:rgba(255,255,255,.95);
+    color:#9b6680;
+
+    font-size:28px;
+    line-height:38px;
+
+    cursor:pointer;
+
+    box-shadow:0 4px 15px rgba(70,40,55,.18);
+
+    transition:.2s;
+}
+
+.booking-close:hover{
+    transform:rotate(90deg) scale(1.08);
+}
+
+@keyframes bookingOpen{
+
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.96);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .booking-overlay{
+        padding:8px;
+    }
+
+    .booking-modal{
+        height:94vh;
+        border-radius:23px;
+    }
+
+}
+
+</style>
+
+
+<script>
+
+function openBooking(){
+
+    document
+        .getElementById("bookingOverlay")
+        .classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+function closeBooking(){
+
+    document
+        .getElementById("bookingOverlay")
+        .classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+
+/* بستن با زدن بیرون پنل */
+
+document
+    .getElementById("bookingOverlay")
+    .addEventListener("click", function(event){
+
+        if(event.target === this){
+            closeBooking();
+        }
+
+    });
+
+
+/* بستن با دکمه Esc */
+
+document.addEventListener("keydown", function(event){
+
+    if(event.key === "Escape"){
+        closeBooking();
+    }
+
+});
+
+</script>
 </body>
 </html>
