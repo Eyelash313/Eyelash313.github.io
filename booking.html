@@ -15,7 +15,9 @@
 
    <style>
 
-/* ===== پس زمینه ===== */
+*{
+    box-sizing:border-box;
+}
 
 body{
     margin:0;
@@ -25,82 +27,140 @@ body{
     font-family:"Vazirmatn",sans-serif;
 
     background:
-        radial-gradient(circle at 10% 10%, rgba(255,190,220,.55), transparent 35%),
-        radial-gradient(circle at 90% 90%, rgba(255,220,235,.7), transparent 40%),
-        linear-gradient(145deg,#fff7fa,#fff,#fff4f8);
+        radial-gradient(circle at 10% 10%,rgba(255,180,215,.55),transparent 35%),
+        radial-gradient(circle at 90% 90%,rgba(255,215,232,.75),transparent 40%),
+        linear-gradient(145deg,#fff3f8,#ffffff,#fff5f9);
 
-    color:#5b3b4a;
+    color:#5c3b4b;
 }
 
 
-/* ===== کارت اصلی ===== */
+/* پنل اصلی */
 
-.booking-card{
+.container{
     width:100%;
     max-width:520px;
-    margin:auto;
 
-    padding:30px 25px;
+    margin:10px auto;
 
-    box-sizing:border-box;
+    padding:32px 26px;
 
-    background:rgba(255,255,255,.88);
+    background:rgba(255,255,255,.92);
 
-    border:1px solid rgba(255,170,205,.35);
+    border:1px solid rgba(235,135,175,.25);
 
     border-radius:30px;
 
     box-shadow:
-        0 20px 55px rgba(120,60,90,.13),
-        0 0 30px rgba(255,150,195,.12);
+        0 25px 65px rgba(110,55,80,.16),
+        0 0 35px rgba(255,145,190,.18);
 
-    backdrop-filter:blur(12px);
+    position:relative;
+    overflow:hidden;
 }
 
 
-/* ===== عنوان ===== */
+/* نور تزئینی بالای پنل */
+
+.container::before{
+    content:"";
+
+    position:absolute;
+
+    top:-70px;
+    right:-70px;
+
+    width:170px;
+    height:170px;
+
+    border-radius:50%;
+
+    background:rgba(255,180,215,.25);
+}
+
+
+/* لوگو */
+
+.logo{
+    text-align:center;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    color:#a45276;
+
+    margin-bottom:12px;
+}
+
+
+/* عنوان */
 
 h1{
+    position:relative;
+
     margin:0;
+
     text-align:center;
 
     font-family:"Playfair Display","Vazirmatn",serif;
 
     font-size:32px;
 
-    color:#9b4f72;
-
-    letter-spacing:.5px;
+    color:#914866;
 }
 
-.booking-subtitle{
+
+/* متن زیر عنوان */
+
+.subtitle{
     text-align:center;
-    margin:8px 0 28px;
 
-    color:#b47a91;
-    font-size:14px;
+    margin:10px 0 25px;
+
+    line-height:1.9;
+
+    font-size:13px;
+
+    color:#ad7b91;
 }
 
 
-/* ===== خط تزئینی ===== */
+/* خط تزئینی */
 
-.booking-line{
-    width:70px;
+.subtitle::after{
+    content:"";
+
+    display:block;
+
+    width:65px;
     height:3px;
 
-    margin:12px auto 25px;
+    margin:15px auto 0;
 
     border-radius:10px;
 
-    background:linear-gradient(90deg,#ff8fbd,#ffd0e2,#ff8fbd);
+    background:linear-gradient(
+        90deg,
+        #ff91bd,
+        #ffd1e2,
+        #ff91bd
+    );
 }
 
 
-/* ===== گروه فرم ===== */
+/* گروه فرم */
 
 .form-group{
-    margin-bottom:19px;
+    margin-bottom:18px;
 }
+
+
+/* عنوان فیلد */
 
 .form-group label{
     display:block;
@@ -108,13 +168,14 @@ h1{
     margin-bottom:8px;
 
     font-size:14px;
+
     font-weight:700;
 
-    color:#80536a;
+    color:#774b61;
 }
 
 
-/* ===== ورودی ها ===== */
+/* فیلدها */
 
 input,
 select,
@@ -122,17 +183,15 @@ textarea{
 
     width:100%;
 
-    box-sizing:border-box;
-
     padding:14px 16px;
 
-    border:1px solid #f1c5d6;
+    border:1px solid #f0c5d6;
 
     border-radius:16px;
 
     background:#fffafd;
 
-    color:#654452;
+    color:#624251;
 
     font-family:"Vazirmatn",sans-serif;
 
@@ -142,33 +201,37 @@ textarea{
 
     transition:.25s;
 
-    box-shadow:0 4px 15px rgba(180,90,125,.05);
+    box-shadow:
+        0 4px 15px rgba(160,75,110,.05);
 }
 
+
+/* وقتی روی فیلد کلیک میشه */
 
 input:focus,
 select:focus,
 textarea:focus{
 
-    border-color:#ee8db7;
+    border-color:#ec83ae;
 
-    background:white;
+    background:#fff;
 
     box-shadow:
-        0 0 0 4px rgba(255,145,190,.12),
-        0 8px 22px rgba(180,80,120,.08);
-
-    transform:translateY(-1px);
+        0 0 0 4px rgba(255,145,190,.13),
+        0 8px 25px rgba(170,75,110,.08);
 }
 
 
+/* توضیحات */
+
 textarea{
     min-height:95px;
+
     resize:vertical;
 }
 
 
-/* ===== دکمه رزرو ===== */
+/* دکمه */
 
 button[type="submit"]{
 
@@ -178,7 +241,7 @@ button[type="submit"]{
 
     padding:16px;
 
-    border:none;
+    border:0;
 
     border-radius:18px;
 
@@ -187,21 +250,22 @@ button[type="submit"]{
     font-family:"Vazirmatn",sans-serif;
 
     font-size:17px;
+
     font-weight:800;
 
-    color:white;
+    color:#fff;
 
     background:
         linear-gradient(
             135deg,
-            #e85b91,
-            #f486b4,
-            #ffb3d0
+            #e95791,
+            #f27caf,
+            #ffafd0
         );
 
     box-shadow:
-        0 10px 25px rgba(232,91,145,.30),
-        0 0 20px rgba(255,180,210,.25);
+        0 12px 28px rgba(226,82,140,.30),
+        0 0 22px rgba(255,175,210,.25);
 
     transition:.25s;
 }
@@ -209,11 +273,11 @@ button[type="submit"]{
 
 button[type="submit"]:hover{
 
-    transform:translateY(-3px) scale(1.01);
+    transform:translateY(-3px);
 
     box-shadow:
-        0 14px 32px rgba(232,91,145,.38),
-        0 0 28px rgba(255,180,210,.35);
+        0 16px 35px rgba(226,82,140,.40),
+        0 0 30px rgba(255,175,210,.35);
 }
 
 
@@ -222,48 +286,99 @@ button[type="submit"]:active{
 }
 
 
-/* ===== پیام موفقیت ===== */
+/* پیام */
 
-#successMessage{
+.message{
 
     margin-top:18px;
 
-    padding:15px;
+    padding:14px;
 
-    border-radius:16px;
+    border-radius:15px;
 
     text-align:center;
 
+    font-size:14px;
+}
+
+
+.message.success{
+
     background:#fff0f6;
 
-    border:1px solid #f6c2d7;
+    border:1px solid #f5bfd5;
 
-    color:#9b4f72;
+    color:#974b6d;
 
     font-weight:700;
 }
 
 
-/* ===== موبایل ===== */
+.message.error{
+
+    background:#fff1f1;
+
+    border:1px solid #f0c0c0;
+
+    color:#a34d4d;
+}
+
+
+/* بازگشت */
+
+.back{
+
+    display:block;
+
+    margin-top:20px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:#a65a79;
+
+    font-size:13px;
+
+    transition:.2s;
+}
+
+
+.back:hover{
+    color:#e35491;
+}
+
+
+/* موبایل */
 
 @media(max-width:600px){
 
     body{
-        padding:15px 10px;
+        padding:12px 8px;
     }
 
-    .booking-card{
-        padding:25px 18px;
+    .container{
+        padding:26px 18px;
+
         border-radius:25px;
     }
 
     h1{
-        font-size:27px;
+        font-size:28px;
+    }
+
+    .logo{
+        font-size:16px;
     }
 
 }
 
-</style> 
+</style>
+
+
+
+            
+
 
 </head>
 
