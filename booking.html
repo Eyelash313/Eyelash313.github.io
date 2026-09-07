@@ -14,164 +14,64 @@
 
 
    <style>
-
-*{
-    box-sizing:border-box;
-}
+  /* ===== ظاهر پررنگ‌تر و لوکس‌تر ===== */
 
 body{
-    margin:0;
-    padding:25px 15px;
-    min-height:100vh;
-
-    font-family:"Vazirmatn",sans-serif;
-
     background:
-        radial-gradient(circle at 10% 10%,rgba(255,180,215,.55),transparent 35%),
-        radial-gradient(circle at 90% 90%,rgba(255,215,232,.75),transparent 40%),
-        linear-gradient(145deg,#fff3f8,#ffffff,#fff5f9);
-
-    color:#5c3b4b;
+        radial-gradient(circle at 0% 0%, #ffc1dc 0, transparent 32%),
+        radial-gradient(circle at 100% 100%, #ffd7e8 0, transparent 35%),
+        linear-gradient(135deg,#fff0f6,#fff7fa,#ffeaf3);
 }
 
 
-/* پنل اصلی */
+/* کارت */
 
 .container{
-    width:100%;
-    max-width:520px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.97),
+        rgba(255,242,248,.94)
+    );
 
-    margin:10px auto;
-
-    padding:32px 26px;
-
-    background:rgba(255,255,255,.92);
-
-    border:1px solid rgba(235,135,175,.25);
-
-    border-radius:30px;
+    border:2px solid #f5bfd5;
 
     box-shadow:
-        0 25px 65px rgba(110,55,80,.16),
-        0 0 35px rgba(255,145,190,.18);
-
-    position:relative;
-    overflow:hidden;
-}
-
-
-/* نور تزئینی بالای پنل */
-
-.container::before{
-    content:"";
-
-    position:absolute;
-
-    top:-70px;
-    right:-70px;
-
-    width:170px;
-    height:170px;
-
-    border-radius:50%;
-
-    background:rgba(255,180,215,.25);
+        0 20px 60px rgba(180,70,115,.20),
+        0 0 35px rgba(255,105,165,.20);
 }
 
 
 /* لوگو */
 
 .logo{
-    text-align:center;
+    color:#d0447c;
 
-    font-family:"Playfair Display",serif;
-
-    font-size:18px;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-    color:#a45276;
-
-    margin-bottom:12px;
+    text-shadow:
+        0 2px 12px rgba(210,55,115,.18);
 }
 
 
 /* عنوان */
 
 h1{
-    position:relative;
+    color:#c23870;
 
-    margin:0;
-
-    text-align:center;
-
-    font-family:"Playfair Display","Vazirmatn",serif;
-
-    font-size:32px;
-
-    color:#914866;
+    text-shadow:
+        0 3px 15px rgba(190,50,105,.15);
 }
 
 
-/* متن زیر عنوان */
+/* متن */
 
 .subtitle{
-    text-align:center;
-
-    margin:10px 0 25px;
-
-    line-height:1.9;
-
-    font-size:13px;
-
-    color:#ad7b91;
+    color:#a95576;
 }
 
 
-/* خط تزئینی */
-
-.subtitle::after{
-    content:"";
-
-    display:block;
-
-    width:65px;
-    height:3px;
-
-    margin:15px auto 0;
-
-    border-radius:10px;
-
-    background:linear-gradient(
-        90deg,
-        #ff91bd,
-        #ffd1e2,
-        #ff91bd
-    );
-}
-
-
-/* گروه فرم */
-
-.form-group{
-    margin-bottom:18px;
-}
-
-
-/* عنوان فیلد */
+/* برچسب ها */
 
 .form-group label{
-    display:block;
-
-    margin-bottom:8px;
-
-    font-size:14px;
-
-    font-weight:700;
-
-    color:#774b61;
+    color:#9a3f67;
 }
 
 
@@ -181,53 +81,27 @@ input,
 select,
 textarea{
 
-    width:100%;
+    background:#fff5f9;
 
-    padding:14px 16px;
-
-    border:1px solid #f0c5d6;
-
-    border-radius:16px;
-
-    background:#fffafd;
-
-    color:#624251;
-
-    font-family:"Vazirmatn",sans-serif;
-
-    font-size:14px;
-
-    outline:none;
-
-    transition:.25s;
+    border:2px solid #f4c0d5;
 
     box-shadow:
-        0 4px 15px rgba(160,75,110,.05);
+        inset 0 2px 8px rgba(220,80,130,.04),
+        0 5px 15px rgba(190,70,115,.06);
 }
 
-
-/* وقتی روی فیلد کلیک میشه */
 
 input:focus,
 select:focus,
 textarea:focus{
 
-    border-color:#ec83ae;
+    border-color:#e94d8b;
 
     background:#fff;
 
     box-shadow:
-        0 0 0 4px rgba(255,145,190,.13),
-        0 8px 25px rgba(170,75,110,.08);
-}
-
-
-/* توضیحات */
-
-textarea{
-    min-height:95px;
-
-    resize:vertical;
+        0 0 0 4px rgba(235,77,139,.15),
+        0 8px 25px rgba(190,65,115,.12);
 }
 
 
@@ -235,143 +109,44 @@ textarea{
 
 button[type="submit"]{
 
-    width:100%;
-
-    margin-top:8px;
-
-    padding:16px;
-
-    border:0;
-
-    border-radius:18px;
-
-    cursor:pointer;
-
-    font-family:"Vazirmatn",sans-serif;
-
-    font-size:17px;
-
-    font-weight:800;
-
-    color:#fff;
-
     background:
         linear-gradient(
             135deg,
-            #e95791,
-            #f27caf,
-            #ffafd0
+            #d93678 0%,
+            #ed5795 45%,
+            #ff8fbd 100%
         );
 
     box-shadow:
-        0 12px 28px rgba(226,82,140,.30),
-        0 0 22px rgba(255,175,210,.25);
-
-    transition:.25s;
+        0 12px 30px rgba(214,45,112,.38),
+        0 0 25px rgba(255,100,165,.25);
 }
 
 
 button[type="submit"]:hover{
 
-    transform:translateY(-3px);
+    background:
+        linear-gradient(
+            135deg,
+            #c92e6e,
+            #e74789,
+            #ff7eb3
+        );
 
     box-shadow:
-        0 16px 35px rgba(226,82,140,.40),
-        0 0 30px rgba(255,175,210,.35);
+        0 16px 38px rgba(210,40,105,.48),
+        0 0 35px rgba(255,100,165,.38);
 }
 
 
-button[type="submit"]:active{
-    transform:scale(.98);
-}
-
-
-/* پیام */
-
-.message{
-
-    margin-top:18px;
-
-    padding:14px;
-
-    border-radius:15px;
-
-    text-align:center;
-
-    font-size:14px;
-}
-
-
-.message.success{
-
-    background:#fff0f6;
-
-    border:1px solid #f5bfd5;
-
-    color:#974b6d;
-
-    font-weight:700;
-}
-
-
-.message.error{
-
-    background:#fff1f1;
-
-    border:1px solid #f0c0c0;
-
-    color:#a34d4d;
-}
-
-
-/* بازگشت */
+/* لینک بازگشت */
 
 .back{
-
-    display:block;
-
-    margin-top:20px;
-
-    text-align:center;
-
-    text-decoration:none;
-
-    color:#a65a79;
-
-    font-size:13px;
-
-    transition:.2s;
-}
+    color:#c13e73;
+    font-weight:700;
+}  
 
 
-.back:hover{
-    color:#e35491;
-}
-
-
-/* موبایل */
-
-@media(max-width:600px){
-
-    body{
-        padding:12px 8px;
-    }
-
-    .container{
-        padding:26px 18px;
-
-        border-radius:25px;
-    }
-
-    h1{
-        font-size:28px;
-    }
-
-    .logo{
-        font-size:16px;
-    }
-
-}
 
 </style>
 
