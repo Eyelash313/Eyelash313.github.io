@@ -360,22 +360,36 @@ body {
   <span id="visit-count">...</span>
 </div>
 
-<script
-  src="https://page-views-api.ratneshc.com/script"
-  data-site="pari-lash-studio"
-  data-path="/"
-  defer>
-</script>
-
 <script>
-fetch("https://page-views-api.ratneshc.com/api/v1/views?site=pari-lash-studio&path=/")
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById("visit-count").textContent = data.views;
-  })
-  .catch(() => {
-    document.getElementById("visit-count").textContent = "—";
-  });
+const visitSite = "pari-lash-studio";
+const visitPath = window.location.pathname;
+
+fetch(
+  "https://page-views-api.ratneshc.com/api/v1/track?site=" +
+  encodeURIComponent(visitSite) +
+  "&path=" +
+  encodeURIComponent(visitPath)
+)
+.then(() => {
+  setTimeout(() => {
+    fetch(
+      "https://page-views-api.ratneshc.com/api/v1/views?site=" +
+      encodeURIComponent(visitSite) +
+      "&path=" +
+      encodeURIComponent(visitPath)
+    )
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("visit-count").textContent = data.views;
+    })
+    .catch(() => {
+      document.getElementById("visit-count").textContent = "—";
+    });
+  }, 1000);
+})
+.catch(() => {
+  document.getElementById("visit-count").textContent = "—";
+});
 </script>
   <!-- ================= معرفی ================= -->
 
