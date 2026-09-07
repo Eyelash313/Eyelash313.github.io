@@ -371,10 +371,10 @@ body {
 fetch("https://page-views-api.ratneshc.com/api/v1/views?site=pari-lash-studio&path=/")
   .then(response => response.json())
   .then(data => {
-    document.getElementById("visit-count").textContent = data.views || 0;
+    document.getElementById("visit-count").textContent = data.views;
   })
   .catch(() => {
-    document.getElementById("visit-count").textContent = "0";
+    document.getElementById("visit-count").textContent = "—";
   });
 </script>
   <!-- ================= معرفی ================= -->
