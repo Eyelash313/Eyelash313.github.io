@@ -14,141 +14,459 @@
 
 
    <style>
-  /* ===== ظاهر پررنگ‌تر و لوکس‌تر ===== */
+
+*{
+    box-sizing:border-box;
+}
 
 body{
+    margin:0;
+    padding:25px 15px;
+    min-height:100vh;
+
+    font-family:"Vazirmatn",sans-serif;
+
     background:
-        radial-gradient(circle at 0% 0%, #ffc1dc 0, transparent 32%),
-        radial-gradient(circle at 100% 100%, #ffd7e8 0, transparent 35%),
-        linear-gradient(135deg,#fff0f6,#fff7fa,#ffeaf3);
+        radial-gradient(circle at 15% 15%,rgba(255,190,220,.65),transparent 28%),
+        radial-gradient(circle at 85% 80%,rgba(205,220,255,.55),transparent 30%),
+        linear-gradient(135deg,#fff0f7,#fdfaff,#f1f3ff);
+
+    color:#463746;
 }
 
 
-/* کارت */
+/* ===== پنل اصلی الماسی ===== */
 
 .container{
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,.97),
-        rgba(255,242,248,.94)
-    );
+    width:100%;
+    max-width:560px;
 
-    border:2px solid #f5bfd5;
+    margin:15px auto;
+
+    padding:38px 32px;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.97),
+            rgba(250,246,255,.96)
+        );
+
+    border-radius:34px;
+
+    border:2px solid rgba(224,178,211,.65);
 
     box-shadow:
-        0 20px 60px rgba(180,70,115,.20),
-        0 0 35px rgba(255,105,165,.20);
+        0 25px 70px rgba(82,55,90,.20),
+        0 0 0 5px rgba(255,255,255,.65),
+        0 0 40px rgba(224,150,205,.20);
+
+    overflow:hidden;
 }
 
 
-/* لوگو */
+/* درخشش گوشه‌های پنل */
+
+.container::before{
+    content:"✦";
+
+    position:absolute;
+
+    top:12px;
+    right:20px;
+
+    font-size:28px;
+
+    color:#d9a8cf;
+
+    opacity:.65;
+}
+
+
+.container::after{
+    content:"✦";
+
+    position:absolute;
+
+    bottom:15px;
+    left:20px;
+
+    font-size:24px;
+
+    color:#e8b6d5;
+
+    opacity:.6;
+}
+
+
+/* ===== لوگو ===== */
 
 .logo{
-    color:#d0447c;
+    text-align:center;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:21px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    color:#9a5278;
+
+    margin-bottom:15px;
 
     text-shadow:
-        0 2px 12px rgba(210,55,115,.18);
+        0 3px 15px rgba(180,90,140,.20);
 }
 
 
-/* عنوان */
+/* ===== عنوان ===== */
 
 h1{
-    color:#c23870;
+    margin:0;
+
+    text-align:center;
+
+    font-family:"Playfair Display","Vazirmatn",serif;
+
+    font-size:38px;
+
+    line-height:1.4;
+
+    color:#783d62;
 
     text-shadow:
-        0 3px 15px rgba(190,50,105,.15);
+        0 3px 18px rgba(120,60,100,.13);
 }
 
 
-/* متن */
+/* ===== توضیح ===== */
 
 .subtitle{
-    color:#a95576;
+    margin:13px 0 30px;
+
+    text-align:center;
+
+    font-size:16px;
+
+    line-height:2;
+
+    color:#806479;
 }
 
 
-/* برچسب ها */
+/* الماس‌های تزئینی */
+
+.subtitle::before{
+    content:"◇  ✦  ◇";
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:18px;
+
+    letter-spacing:7px;
+
+    color:#c88ab0;
+}
+
+
+/* ===== گروه‌ها ===== */
+
+.form-group{
+    margin-bottom:23px;
+}
+
+
+/* ===== نوشته‌های فیلد ===== */
 
 .form-group label{
-    color:#9a3f67;
+    display:block;
+
+    margin-bottom:10px;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    color:#663e56;
 }
 
 
-/* فیلدها */
+/* ===== کادرهای ورودی ===== */
 
 input,
 select,
 textarea{
 
-    background:#fff5f9;
+    width:100%;
 
-    border:2px solid #f4c0d5;
+    padding:17px 18px;
+
+    border-radius:18px;
+
+    border:2px solid #e8c5da;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffafd,
+            #fdf9ff
+        );
+
+    color:#4d3b48;
+
+    font-family:"Vazirmatn",sans-serif;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.25s;
 
     box-shadow:
-        inset 0 2px 8px rgba(220,80,130,.04),
-        0 5px 15px rgba(190,70,115,.06);
+        0 6px 20px rgba(100,65,95,.07),
+        inset 0 1px 5px rgba(255,255,255,.9);
 }
 
+
+/* فوکوس */
 
 input:focus,
 select:focus,
 textarea:focus{
 
-    border-color:#e94d8b;
+    border-color:#c989ad;
 
     background:#fff;
 
+    transform:translateY(-2px);
+
     box-shadow:
-        0 0 0 4px rgba(235,77,139,.15),
-        0 8px 25px rgba(190,65,115,.12);
+        0 0 0 5px rgba(205,137,174,.12),
+        0 10px 28px rgba(110,65,95,.12);
 }
 
 
-/* دکمه */
+/* placeholder */
+
+input::placeholder,
+textarea::placeholder{
+    color:#b29aaa;
+}
+
+
+/* توضیحات */
+
+textarea{
+    min-height:125px;
+
+    resize:vertical;
+
+    line-height:1.8;
+}
+
+
+/* ===== دکمه الماسی ===== */
 
 button[type="submit"]{
+
+    width:100%;
+
+    margin-top:8px;
+
+    padding:18px 20px;
+
+    border:0;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    font-family:"Vazirmatn",sans-serif;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    color:white;
 
     background:
         linear-gradient(
             135deg,
-            #d93678 0%,
-            #ed5795 45%,
-            #ff8fbd 100%
+            #9d527d 0%,
+            #d16c9d 45%,
+            #eaa2c4 75%,
+            #b978a5 100%
         );
 
     box-shadow:
-        0 12px 30px rgba(214,45,112,.38),
-        0 0 25px rgba(255,100,165,.25);
+        0 12px 30px rgba(145,70,110,.32),
+        0 0 25px rgba(226,150,190,.25);
+
+    transition:.25s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+/* برق روی دکمه */
+
+button[type="submit"]::after{
+    content:"✦";
+
+    position:absolute;
+
+    right:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:22px;
+
+    opacity:.75;
 }
 
 
 button[type="submit"]:hover{
 
-    background:
-        linear-gradient(
-            135deg,
-            #c92e6e,
-            #e74789,
-            #ff7eb3
-        );
+    transform:translateY(-3px);
 
     box-shadow:
-        0 16px 38px rgba(210,40,105,.48),
-        0 0 35px rgba(255,100,165,.38);
+        0 17px 40px rgba(145,70,110,.40),
+        0 0 35px rgba(226,150,190,.35);
 }
 
 
-/* لینک بازگشت */
+button[type="submit"]:active{
+    transform:scale(.98);
+}
+
+
+/* ===== پیام ===== */
+
+.message{
+    margin-top:20px;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    font-size:15px;
+
+    line-height:1.7;
+}
+
+
+.message.success{
+
+    background:linear-gradient(
+        135deg,
+        #fff0f7,
+        #f9f0ff
+    );
+
+    border:1px solid #e8bfd7;
+
+    color:#814563;
+
+    font-weight:800;
+}
+
+
+.message.error{
+
+    background:#fff1f3;
+
+    border:1px solid #e9b9c2;
+
+    color:#a24759;
+}
+
+
+/* ===== بازگشت ===== */
 
 .back{
-    color:#c13e73;
+
+    display:block;
+
+    margin-top:23px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-size:15px;
+
     font-weight:700;
-}  
+
+    color:#9a5278;
+
+    transition:.2s;
+}
 
 
+.back:hover{
+    color:#d05291;
+}
+
+
+/* ===== موبایل ===== */
+
+@media(max-width:600px){
+
+    body{
+        padding:12px 8px;
+    }
+
+    .container{
+        padding:30px 20px;
+
+        border-radius:28px;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    h1{
+        font-size:32px;
+    }
+
+    .subtitle{
+        font-size:15px;
+    }
+
+    .form-group label{
+        font-size:15px;
+    }
+
+    input,
+    select,
+    textarea{
+        font-size:16px;
+
+        padding:16px;
+    }
+
+    button[type="submit"]{
+        font-size:17px;
+    }
+
+}
 
 </style>
+  
+
 
 
 
@@ -283,6 +601,62 @@ button[type="submit"]:hover{
         </button>
 
     </form>
+
+<!-- طرح تزئینی</form>
+
+<div style="
+    margin:30px auto 10px;
+    padding:22px 15px;
+    text-align:center;
+    border-radius:25px;
+    background:linear-gradient(135deg,#fff0f7,#f5edff);
+    border:1px solid #e2bfd7;
+    box-shadow:0 8px 25px rgba(150,90,130,.12);
+">
+
+    <div style="
+        font-size:42px;
+        line-height:1.2;
+        letter-spacing:8px;
+    ">
+        👁️ ✦ ♡
+    </div>
+
+    <div style="
+        margin-top:10px;
+        font-family:'Playfair Display','Vazirmatn',serif;
+        font-size:20px;
+        font-weight:700;
+        color:#9a5278;
+    ">
+        زیبایی نگاهت ✨
+    </div>
+
+    <div style="
+        margin-top:5px;
+        font-size:13px;
+        color:#aa8298;
+    ">
+        با عشق، برای نگاه خاص تو 💎
+    </div>
+
+</div>مژه -->
+
+<div class="lash-decoration">
+
+    <div class="lash-eye">
+        <span></span>
+    </div>
+
+    <div class="lash-sparkles">
+        ✦　◇　✦
+    </div>
+
+    <div class="lash-text">
+        زیبایی نگاهت ✨
+    </div>
+
+</div>
 
 
     <div
