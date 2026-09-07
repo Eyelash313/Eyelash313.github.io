@@ -550,7 +550,67 @@
 
     </div>
   </section>
+<a href="booking.html" class="lux-book-btn">
+💖 رزرو نوبت
+</a>
 
+<style>
+.lux-book-btn{
+position:fixed;
+bottom:25px;
+left:20px;
+z-index:9999;
+
+padding:16px 28px;
+border-radius:50px;
+
+background:linear-gradient(
+135deg,
+#ff5fa2,
+#ff87c5,
+#ffd6e8
+);
+
+color:#fff;
+font-size:18px;
+font-weight:700;
+text-decoration:none;
+
+box-shadow:
+0 8px 25px rgba(255,95,162,.45),
+0 0 20px rgba(255,255,255,.4);
+
+animation:
+floatBtn 3s ease-in-out infinite,
+glowBtn 2s ease-in-out infinite;
+}
+
+@keyframes floatBtn{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-8px);
+}
+}
+
+@keyframes glowBtn{
+0%,100%{
+box-shadow:
+0 8px 25px rgba(255,95,162,.45),
+0 0 15px rgba(255,255,255,.4);
+}
+50%{
+box-shadow:
+0 12px 35px rgba(255,95,162,.65),
+0 0 30px rgba(255,255,255,.8);
+}
+}
+
+.lux-book-btn:hover{
+transform:scale(1.08);
+}
+</style>
 
   <!-- ================= فوتر ================= -->
 
