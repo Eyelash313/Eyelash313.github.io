@@ -821,20 +821,16 @@ try {
 
     console.log("نوبت با موفقیت ثبت و به Pipedream ارسال شد.");
 
-} catch (error) {
+message.className = "message success";
+
+message.textContent =
+    "درخواست شما با موفقیت ثبت شد 🌸";
+
+form.reset(); } catch (error) {
     console.error("خطا در ثبت نوبت:", error);
 }
         
 
-            message.className =
-                "message success";
-
-
-            message.textContent =
-                "درخواست شما با موفقیت ثبت شد 🌸";
-
-
-            form.reset();
 
 
 
