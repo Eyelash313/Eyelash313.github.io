@@ -785,31 +785,46 @@ form.addEventListener(
             document.getElementById("description")
             .value.trim();
 
+try {
+    const bookingData = {
+        name: name,
+        phone: phone,
+        date: date,
+        service: service,
+        description: description,
+        status: "در انتظار بررسی",
+        createdAt: serverTimestamp()
+    };
 
-        try{
+    // ثبت نوبت در Firestore
+    const docRef = await addDoc(
+        collection(db, "bookings"),
+        bookingData
+    );
 
-            await addDoc(
-                collection(db,"bookings"),
-                {
+    // ارسال نوبت جدید به Pipedream
+    await fetch(" https://eowv0cqb9hcohov.m.pipedream.net", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id: docRef.id,
+            name: name,
+            phone: phone,
+            date: date,
+            service: service,
+            description: description,
+            status: "در انتظار بررسی"
+        })
+    });
 
-                    name:name,
+    console.log("نوبت با موفقیت ثبت و به Pipedream ارسال شد.");
 
-                    phone:phone,
-
-                    date:date,
-
-                    service:service,
-
-                    description:description,
-
-                    status:"در انتظار بررسی",
-
-                    createdAt:
-                        serverTimestamp()
-
-                }
-            );
-
+} catch (error) {
+    console.error("خطا در ثبت نوبت:", error);
+}
+        
 
             message.className =
                 "message success";
