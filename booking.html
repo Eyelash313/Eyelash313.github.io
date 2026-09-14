@@ -688,172 +688,120 @@ jalaliDatepicker.startWatch({
 
 </script>
 
-
+import
 <!-- Firebase -->
 
 <script type="module">
 
-import { initializeApp } from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
     getFirestore,
     collection,
     addDoc,
     serverTimestamp
-} from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-
     apiKey: "AIzaSyCn_Rx6fdxUO_E2eIYjNQaiPamSMntmshc",
-
     authDomain: "pari-lash-studio.firebaseapp.com",
-
     projectId: "pari-lash-studio",
-
     storageBucket: "pari-lash-studio.firebasestorage.app",
-
     messagingSenderId: "345811477312",
-
     appId: "1:345811477312:web:77b060a885ede8461490a5"
-
 };
 
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-const app =
-    initializeApp(firebaseConfig);
+const form = document.getElementById("bookingForm");
+const button = document.getElementById("submitBtn");
+const message = document.getElementById("message");
 
+form.addEventListener("submit", async (event) => {
 
-const db =
-    getFirestore(app);
+    event.preventDefault();
 
+    button.disabled = true;
+    button.textContent = "در حال ثبت...";
 
-const form =
-    document.getElementById("bookingForm");
+    message.className = "message";
+    message.textContent = "";
 
+    try {
 
-const button =
-    document.getElementById("submitBtn");
+        const bookingData = {
+            name: document.getElementById("name").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            date: document.getElementById("date").value,
+            service: document.getElementById("service").value,
+            description: document.getElementById("description").value.trim(),
+            status: "در انتظار بررسی",
+            createdAt: serverTimestamp()
+        };
 
+        const docRef = await addDoc(
+            collection(db, "bookings"),
+            bookingData
+        );
 
-const message =
-    document.getElementById("message");
+        try {
 
+            await fetch(
+                "https://eowv0cqb9hcohov.m.pipedream.net",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        id: docRef.id,
+                        ...bookingData
+                    })
+                }
+            );
 
-form.addEventListener(
-    "submit",
-    async function(event){
+            console.log("ارسال به Pipedream موفق بود.");
 
-        event.preventDefault();
+        } catch (telegramError) {
 
-
-        button.disabled = true;
-
-        button.textContent =
-            "در حال ثبت...";
-
-
-        message.className =
-            "message";
-
-        message.textContent = "";
-
-
-        const name =
-            document.getElementById("name")
-            .value.trim();
-
-
-        const phone =
-            document.getElementById("phone")
-            .value.trim();
-
-
-        const date =
-            document.getElementById("date")
-            .value;
-
-
-        const service =
-            document.getElementById("service")
-            .value;
-
-
-        const description =
-            document.getElementById("description")
-            .value.trim();
-
-try {
-    const bookingData = {
-        name: name,
-        phone: phone,
-        date: date,
-        service: service,
-        description: description,
-        status: "در انتظار بررسی",
-        createdAt: serverTimestamp()
-    };
-
-    // ثبت نوبت در Firestore
-    const docRef = await addDoc(
-        collection(db, "bookings"),
-        bookingData
-    );
-
-    // ارسال نوبت جدید به Pipedream
-    await fetch("https://eowv0cqb9hcohov.m.pipedream.net", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            id: docRef.id,
-            name: name,
-            phone: phone,
-            date: date,
-            service: service,
-            description: description,
-            status: "در انتظار بررسی"
-        })
-    });
-
-    console.log("نوبت با موفقیت ثبت و به Pipedream ارسال شد.");
-
-message.className = "message success";
-
-message.textContent =
-    "درخواست شما با موفقیت ثبت شد 🌸";
-
-form.reset(); } catch (error) {
-    console.error("خطا در ثبت نوبت:", error);
-}
-        
-
-
-
-
-
-            message.className =
-                "message error";
-
-
-            message.textContent =
-                "ثبت درخواست انجام نشد. لطفاً دوباره امتحان کنید.";
+            console.error(
+                "خطا در ارسال به Pipedream:",
+                telegramError
+            );
 
         }
 
+        message.className = "message success";
+        message.textContent =
+            "درخواست شما با موفقیت ثبت شد 🌸";
+
+        form.reset();
+
+    } catch (error) {
+
+        console.error(
+            "خطا در ثبت نوبت:",
+            error
+        );
+
+        message.className = "message error";
+        message.textContent =
+            "ثبت درخواست انجام نشد. لطفاً دوباره امتحان کنید.";
+
+    } finally {
 
         button.disabled = false;
-
-
         button.textContent =
             "ثبت درخواست نوبت ✨";
 
     }
-);
 
+});
+
+             
+    
 </script>
 
 </body>
